@@ -2,7 +2,7 @@ html {
     font-family: 'Faculty Glyphic', 'Trebuchet MS', Arial, sans-serif;
     font-size: 10px;
     box-sizing: border-box;
-    background: #ffffff;
+    background: #000000;
 }
 
 .player {
@@ -15,4 +15,39 @@ html {
 .photo {
     width: 100%;
     float: left;
+}
+
+.strip {
+    padding: 2rem;
+}
+
+.strip img {
+    width: 10rem;
+    overflow-x: scroll;
+    padding: 1.5rem;
+    background: #5b5b5b;
+}
+
+/*
+    Rotate images in the strip with varying degrees based on their position,
+    creating a playful, slightly randomized photo wall effect
+*/
+.strip a:nth-child(5n + 1) img {
+    transform: rotate(10deg);
+}
+
+.strip a:nth-child(5n + 2) img {
+    transform: rotate(-2deg);
+}
+
+.strip a:nth-child(5n + 3) img {
+    transform: rotate(8deg);
+}
+
+.strip a:nth-child(5n + 4) img {
+    transform: rotate(-11deg);
+}
+
+.strip a:nth-child(5n + 5) img {
+    transform: rotate(12deg);
 }

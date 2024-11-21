@@ -39,5 +39,21 @@ const paintToCanvas = () => {
     }, 20);
 };
 
+const takePhoto = () => {
+    // Reset audio playback to start
+    snap.currentTime = 0;
+    // Play camera snap sound effect
+    snap.play();
+    // Capture current canvas content as a data URL in JPEG format
+    const data = canvas.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href = data;
+    // Set download attribute to specify filename when user saves the image
+    link.setAttribute('download', 'handsome');
+    link.innerHTML = `<img src="${data}" alt="Handsome Person" />`;
+    // Insert the new link/image at the beginning of the 'strip' element
+    strip.insertBefore(link, strip.firstChild);
+};
+
 getVideo();
 video.addEventListener('canplay', paintToCanvas);
