@@ -41,7 +41,10 @@ const paintToCanvas = () => {
         // Extract pixel data from canvas
         let pixels = ctx.getImageData(0, 0, videoWidth, videoHeight);
          // Apply color manipulation effect to pixels
-        pixels = sunnyEffect(pixels);
+        // pixels = sunnyEffect(pixels);
+        // pixels = psychedelicEffect(pixels);
+        // Ghost effect
+        // ctx.globalAlpha = 0.1;
         // Render modified pixels back to canvas
         ctx.putImageData(pixels, 0, 0);
     }, 20);
@@ -69,6 +72,17 @@ const sunnyEffect = pixels => {
         pixels.data[i + 0] = pixels.data[i + 0] + 100; // Red
         pixels.data[i + 1] = pixels.data[i + 1] - 10; // Green
         pixels.data[i + 2] = pixels.data[i + 2] * 0.5; // Blue
+    }
+    return pixels;
+};
+
+const psychedelicEffect = pixels => {
+    // Iterate through pixel data, creating a color channel offset effect.
+    // Shift channels to a different index.
+    for (let i = 0; i < pixels.data.length; i += 4) {
+        pixels.data[i + 108] = pixels.data[i + 0]; // Red
+        pixels.data[i + 86] = pixels.data[i + 1]; // Green
+        pixels.data[i - 20] = pixels.data[i + 2]; // Blue
     }
     return pixels;
 };
