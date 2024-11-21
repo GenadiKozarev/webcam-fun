@@ -16,6 +16,22 @@
         <div class="photobooth">
             <div class="controls">
                 <button onClick="takePhoto()">Take photo</button>
+                <div class="rgb">
+                    <label for="rmin">red min:</label>
+                    <input type="range" min="0" max="255" name="rmin" />
+                    <label for="rmax">red max:</label>
+                    <input type="range" min="0" max="255" name="rmax" />
+                    <br />
+                    <label for="gmin">green min:</label>
+                    <input type="range" min="0" max="255" name="gmin" />
+                    <label for="gmax">green max:</label>
+                    <input type="range" min="0" max="255" name="gmax" />
+                    <br />
+                    <label for="bmin">blue min:</label>
+                    <input type="range" min="0" max="255" name="bmin" />
+                    <label for="bmax">blue max:</label>
+                    <input type="range" min="0" max="255" name="bmax" />
+                </div>
             </div>
             <canvas class="photo"></canvas>
             <video class="player"></video>
