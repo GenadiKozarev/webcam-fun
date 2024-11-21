@@ -1,0 +1,10 @@
+{
+  "source": "index.html",
+  "scripts": {
+    "dev": "parcel",
+    "build": "npx parcel build index.html --public-url ./"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
