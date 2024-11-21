@@ -40,3 +40,4 @@ const paintToCanvas = () => {
 };
 
 getVideo();
+video.addEventListener('canplay', paintToCanvas);
