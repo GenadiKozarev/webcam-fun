@@ -4,3 +4,10 @@ html {
     box-sizing: border-box;
     background: #000000;
 }
+
+.player {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 20rem;
+}
