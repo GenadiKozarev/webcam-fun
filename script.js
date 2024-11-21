@@ -31,11 +31,19 @@ const getVideo = async () => {
 
 const paintToCanvas = () => {
     const { videoWidth, videoHeight } = video;
-    // Set the canvas' size to match the video
+    // Set the canvas dimensions to match the video source
     canvas.width = videoWidth;
     canvas.height = videoHeight;
+    // Continuously process video frames with pixel manipulation effect
     return setInterval(() => {
+        // Draw current video frame to canvas
         ctx.drawImage(video, 0, 0, videoWidth, videoHeight);
+        // Extract pixel data from canvas
+        let pixels = ctx.getImageData(0, 0, videoWidth, videoHeight);
+         // Apply color manipulation effect to pixels
+        pixels = sunnyEffect(pixels);
+        // Render modified pixels back to canvas
+        ctx.putImageData(pixels, 0, 0);
     }, 20);
 };
 
@@ -53,6 +61,16 @@ const takePhoto = () => {
     link.innerHTML = `<img src="${data}" alt="Handsome Person" />`;
     // Insert the new link/image at the beginning of the 'strip' element
     strip.insertBefore(link, strip.firstChild);
+};
+
+const sunnyEffect = pixels => {
+    // Iterate through pixel data, modifying color channels
+    for (let i = 0; i < pixels.data.length; i += 4) {
+        pixels.data[i + 0] = pixels.data[i + 0] + 100; // Red
+        pixels.data[i + 1] = pixels.data[i + 1] - 10; // Green
+        pixels.data[i + 2] = pixels.data[i + 2] * 0.5; // Blue
+    }
+    return pixels;
 };
 
 getVideo();
