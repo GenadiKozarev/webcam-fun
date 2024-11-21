@@ -2,7 +2,7 @@ html {
     font-family: 'Faculty Glyphic', 'Trebuchet MS', Arial, sans-serif;
     font-size: 10px;
     box-sizing: border-box;
-    background: #000000;
+    background: #ffffff;
 }
 
 .player {
@@ -10,4 +10,9 @@ html {
     top: 2rem;
     right: 2rem;
     width: 20rem;
+}
+
+.photo {
+    width: 100%;
+    float: left;
 }

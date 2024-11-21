@@ -24,8 +24,19 @@ const getVideo = async () => {
         }
         video.play();
     } catch (err) {
+        alert('Camera access is required for this feature to work.');
         console.error('Video access required for this feature to work', err);
     }
+};
+
+const paintToCanvas = () => {
+    const { videoWidth, videoHeight } = video;
+    // Set the canvas' size to match the video
+    canvas.width = videoWidth;
+    canvas.height = videoHeight;
+    return setInterval(() => {
+        ctx.drawImage(video, 0, 0, videoWidth, videoHeight);
+    }, 20);
 };
 
 getVideo();
