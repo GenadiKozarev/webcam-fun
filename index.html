@@ -13,5 +13,14 @@
         <script defer src="./script.js"></script>
     </head>
     <body>
+        <div class="photobooth">
+            <div class="controls">
+                <button onClick="takePhoto()">Take photo</button>
+            </div>
+            <canvas class="photo"></canvas>
+            <video class="player"></video>
+            <div class="strip"></div>
+        </div>
+        <audio src="./assets/snap.mp3" class="snap" hidden></audio>
     </body>
 </html>
