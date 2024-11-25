@@ -3,6 +3,9 @@ const canvas = document.querySelector('.photo');
 const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
+const rgbControls = document.querySelector('.rgb-controls');
+const effects = document.querySelectorAll('.effects input[name="effect"]');
+let selectedEffect = null;
 
 const getVideo = async () => {
     try {
@@ -40,12 +43,27 @@ const paintToCanvas = () => {
         ctx.drawImage(video, 0, 0, videoWidth, videoHeight);
         // Extract pixel data from canvas
         let pixels = ctx.getImageData(0, 0, videoWidth, videoHeight);
-        // Apply color manipulation effect to pixels
-        // pixels = sunnyEffect(pixels);
-        // pixels = psychedelicEffect(pixels);
-        // pixels = greenScreen(pixels);
-        // Ghost effect
-        // ctx.globalAlpha = 0.1;
+        // Apply the selected color manipulation effect
+        if (selectedEffect === 'sunnyEffect') {
+            ctx.globalAlpha = 1;
+            rgbControls.style.display = 'none';
+            pixels = sunnyEffect(pixels);
+            console.log(ctx.globalAlpha);
+        }
+        if (selectedEffect === 'psychedelicEffect') {
+            ctx.globalAlpha = 1;
+            rgbControls.style.display = 'none';
+            pixels = psychedelicEffect(pixels);
+        }
+        if (selectedEffect === 'rgbEffect') {
+            ctx.globalAlpha = 1;
+            rgbControls.style.display = 'flex';
+            pixels = rgbEffect(pixels);
+        }
+        if (selectedEffect === 'ghostEffect') {
+            rgbControls.style.display = 'none';
+            ctx.globalAlpha = 0.1;
+        }
         // Render modified pixels back to canvas
         ctx.putImageData(pixels, 0, 0);
     }, 20);
@@ -88,7 +106,7 @@ const psychedelicEffect = pixels => {
     return pixels;
 };
 
-const greenScreen = pixels => {
+const rgbEffect = pixels => {
     const levels = {};
     document.querySelectorAll('.rgb input').forEach(input => {
         levels[input.name] = input.value;
@@ -114,3 +132,8 @@ const greenScreen = pixels => {
 
 getVideo();
 video.addEventListener('canplay', paintToCanvas);
+effects.forEach(effect => {
+    effect.addEventListener('change', e => {
+        selectedEffect = e.target.value;
+    });
+});

@@ -1,6 +1,6 @@
 ## webcam-fun
 
-### 
+### Apply a fun effect, take a photo and click on the photo to download it as a nice memory
 
 Live: 
 

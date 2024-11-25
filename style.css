@@ -1,6 +1,6 @@
 html {
     font-family: 'Faculty Glyphic', 'Trebuchet MS', Arial, sans-serif;
-    font-size: 10px;
+    font-size: 13px;
     color: #fff;
     box-sizing: border-box;
     background: #000000;
@@ -19,6 +19,33 @@ html {
     content: '';
     display: block;
     clear: both;
+}
+
+.m-2 {
+    margin: 2rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.controls {
+    width: 50rem;
+    height: auto;
+}
+
+.rgb-controls {
+    display: none;
+}
+
+.take-photo-btn {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0.3rem;
 }
 
 .player {

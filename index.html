@@ -14,9 +14,27 @@
     </head>
     <body>
         <div class="photobooth">
-            <div class="controls">
-                <button onClick="takePhoto()">Take photo</button>
-                <div class="rgb">
+            <div class="rgb controls flex">
+                <button onClick="takePhoto()" class="m-2 take-photo-btn">Take a photo</button>
+                <div class="effects m-2 flex flex-col">
+                    <label>
+                        <input type="radio" name="effect" value="sunnyEffect" />
+                        Sunny Effect
+                    </label>
+                    <label>
+                        <input type="radio" name="effect" value="psychedelicEffect" />
+                        Psychedelic Effect
+                    </label>
+                    <label>
+                        <input type="radio" name="effect" value="rgbEffect" />
+                        RGB Effect
+                    </label>
+                    <label>
+                        <input type="radio" name="effect" value="ghostEffect" />
+                        Ghost Effect
+                    </label>
+                </div>
+                <div class="rgb-controls m-2 flex flex-col">
                     <label for="rmin">red min:</label>
                     <input type="range" min="0" max="255" name="rmin" />
                     <label for="rmax">red max:</label>
