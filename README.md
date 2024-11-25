@@ -2,9 +2,11 @@
 
 ### Apply a fun effect, take a photo and click on the photo to download it as a nice memory
 
-Live: 
+Live: https://genadikozarev.github.io/webcam-fun/
 
-Preview: 
+Preview:
+
+<img width="711" alt="webcam-fun-preview" src="https://github.com/user-attachments/assets/85c1c513-926f-4291-82bf-6f97fd58ae00">
 
 Keywords:
 - [Window: navigator property](https://developer.mozilla.org/en-US/docs/Web/API/Window/navigator)
