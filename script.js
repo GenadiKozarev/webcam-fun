@@ -84,6 +84,7 @@ const takePhoto = () => {
     // Insert the new link/image at the beginning of the 'strip' element
     strip.insertBefore(link, strip.firstChild);
 };
+window.takePhoto = takePhoto;
 
 const sunnyEffect = pixels => {
     // Iterate through pixel data, modifying color channels
